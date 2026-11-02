@@ -63,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     },
-    { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+    // 5%: seções muito altas (página do curso no celular) nunca chegam a 20% visível
+    { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
   );
 
   document

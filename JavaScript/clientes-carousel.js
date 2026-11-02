@@ -10,7 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPaused = false;
     let animationId;
     let currentPosition = 0;
-    const logoWidth = 180 + 30; // largura do logo + gap
+    // largura do logo + gap, medida na tela (muda entre desktop e celular)
+    const getLogoWidth = () => clientesLogos.length > 1
+      ? clientesLogos[1].offsetLeft - clientesLogos[0].offsetLeft
+      : 180 + 30;
     const speed = 0.8; // pixels por frame
     const totalLogos = clientesLogos.length;
 
@@ -29,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPosition -= speed;
 
         // Quando completar o scroll de todos os logos originais
-        const resetPoint = -(logoWidth * totalLogos);
+        const resetPoint = -(getLogoWidth() * totalLogos);
         
         if (currentPosition <= resetPoint) {
           // Reseta a posição para 0 (volta ao início sem salto visível)

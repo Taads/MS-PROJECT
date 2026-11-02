@@ -400,3 +400,35 @@
     padding: 1.3rem 1.1rem 1.4rem;
   }
 }
+
+
+/* ===========================
+   Ajustes finais para celular
+   =========================== */
+@media (max-width: 960px) {
+  /* Evita que o conteúdo (vídeo) estique a coluna além da tela */
+  .curso-hero > * {
+    min-width: 0;
+  }
+
+  .video-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .video-container iframe {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 480px) {
+  .curso-botao-comprar {
+    white-space: normal;
+    width: 100%;
+    text-align: center;
+  }
+}
