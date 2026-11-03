@@ -1245,13 +1245,10 @@ img {
   position: relative;
   display: block;
   width: fit-content;
-  margin: 0 auto 2.5rem;
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: transparent;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
+  margin: 0 auto 1.5rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text);
   text-align: center;
   letter-spacing: 0.8px;
   text-transform: uppercase;
@@ -1289,10 +1286,6 @@ img {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.section-title {
-  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 /* ================================
@@ -1348,17 +1341,6 @@ img {
 #servicos .service-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 16px 40px rgba(28, 92, 220, 0.3);
-}
-
-/* Seções */
-.section-title {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: var(--text);
-  font-weight: 700;
-  opacity: 0;
-  animation: fadeIn 0.8s ease-out forwards;
 }
 
 /* ===================================
@@ -1536,10 +1518,7 @@ img {
 
 /* Destaque em palavras-chave */
 .about-text p b {
-  background: linear-gradient(135deg, #1c5cdc, #87CEFA);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
   font-weight: 700;
 }
 
@@ -1720,10 +1699,7 @@ img {
 .about-stat-number {
   font-size: 2.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #1c5cdc, #83db75);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
   margin-bottom: 8px;
 }
 
@@ -2937,12 +2913,8 @@ img {
 .contact-info-header h3 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--text);
+  color: var(--primary);
   margin: 0 0 12px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .contact-info-header p {
@@ -3628,5 +3600,317 @@ img {
   html,
   body {
     overflow-x: clip;
+  }
+}
+
+
+/* ===========================
+   Refinamento visual
+   =========================== */
+
+/* Espaçamento vertical uniforme entre as seções */
+.section,
+#sobre-nos,
+#servicos,
+#insights {
+  padding: 88px 0;
+}
+
+@media (max-width: 768px) {
+  .section,
+  #sobre-nos,
+  #servicos,
+  #insights {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section,
+  #sobre-nos,
+  #servicos,
+  #insights {
+    padding: 52px 0;
+  }
+}
+
+/* Alterna os fundos: Clientes (branco) > Insights (cinza claro) > Contato (branco) */
+#insights {
+  background: var(--bg);
+}
+
+/* Faixa de números em azul-marinho (mesma cor do rodapé) */
+.stats-band {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 0;
+  color: #fff;
+  background-color: #0a1535;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.07) 1.5px, transparent 1.5px),
+    radial-gradient(900px 320px at 12% 0%, rgba(135, 206, 250, 0.18), transparent),
+    radial-gradient(800px 320px at 88% 100%, rgba(28, 92, 220, 0.35), transparent);
+  background-size: 24px 24px, auto, auto;
+}
+
+.stats-band .about-stats {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.stats-band .about-stat-item {
+  padding: 8px 24px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+.stats-band .about-stat-item + .about-stat-item {
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.stats-band .about-stat-number {
+  font-size: 3.2rem;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.stats-band .about-stat-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #c9d1e6;
+}
+
+@media (max-width: 768px) {
+  .stats-band {
+    padding: 40px 0;
+  }
+
+  .stats-band .about-stat-item {
+    padding: 4px 8px;
+  }
+
+  .stats-band .about-stat-number {
+    font-size: 2.1rem;
+  }
+
+  .stats-band .about-stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Logos dos clientes: recortados sem margem, em cinza e coloridos ao passar o mouse */
+.clientes-carousel {
+  padding: 12px 0 24px;
+}
+
+.cliente-logo {
+  flex: 0 0 230px;
+  min-width: 230px;
+  height: 120px;
+  padding: 0 24px;
+}
+
+.cliente-logo img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 72px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.75;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cliente-logo:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .cliente-logo {
+    flex: 0 0 200px;
+    min-width: 200px;
+    height: 108px;
+    padding: 0 20px;
+  }
+
+  .cliente-logo img {
+    max-height: 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cliente-logo {
+    flex: 0 0 176px;
+    min-width: 176px;
+    height: 96px;
+    padding: 0 18px;
+  }
+
+  .cliente-logo img {
+    max-height: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cliente-logo {
+    flex: 0 0 156px;
+    min-width: 156px;
+    height: 88px;
+    padding: 0 16px;
+  }
+
+  .cliente-logo img {
+    max-height: 50px;
+  }
+}
+
+/* Sem passar o mouse (celular), os logos ficam quase coloridos */
+@media (hover: none) {
+  .cliente-logo img {
+    filter: grayscale(0.35);
+    opacity: 0.95;
+  }
+}
+
+
+/* ===========================
+   Ampliar imagens (lightbox)
+   =========================== */
+.insight-carousel-item img,
+.service-card-image img {
+  cursor: zoom-in;
+}
+
+/* Selo "ampliar" no canto das imagens dos insights */
+.insight-carousel-item::after {
+  content: 'zoom_in';
+  font-family: 'Material Icons';
+  font-size: 20px;
+  line-height: 1;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(10, 21, 53, 0.65);
+  pointer-events: none;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 15, 35, 0.97);
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-stage {
+  width: 100%;
+  max-height: calc(100vh - 110px);
+  max-height: calc(100dvh - 110px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.lightbox-img {
+  display: block;
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  cursor: zoom-in;
+}
+
+/* Ampliada: a imagem passa a ser maior que a tela e o usuário arrasta para ler */
+.lightbox-stage.zoomed {
+  display: block;
+}
+
+.lightbox-stage.zoomed .lightbox-img {
+  width: min(max(1000px, 250vw), 1600px);
+  max-width: none;
+  margin: 0 auto;
+  cursor: zoom-out;
+}
+
+.lightbox-hint {
+  margin: 14px 16px 0;
+  font-size: 0.85rem;
+  color: #c9d1e6;
+  text-align: center;
+}
+
+.lightbox-btn {
+  position: absolute;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  cursor: pointer;
+}
+
+.lightbox-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.lightbox-btn[hidden] {
+  display: none;
+}
+
+.lightbox-close {
+  top: 14px;
+  right: 14px;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-prev {
+  left: 10px;
+}
+
+.lightbox-next {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .lightbox-prev,
+  .lightbox-next {
+    top: auto;
+    bottom: 14px;
+    transform: none;
   }
 }
